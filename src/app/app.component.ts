@@ -21,6 +21,7 @@ export class AppComponent {
       area3: 160,
     }
   };
+  isVisibleA: boolean = true;
 
   title = 'flex-split';
 
@@ -34,4 +35,13 @@ export class AppComponent {
       this.sizes.pixel.area3 = sizes[2];
     }
   }
+  log(x) {
+    console.log('dragEnd ', x.sizes, ' total > ', x.sizes.reduce((t, s) => t+s, 0))
+}
+collapseArea() {
+  console.log('oki');
+  this.sizes.pixel.area1 = 50;
+  //this.isVisibleA = !this.isVisibleA;
+
+}
 }

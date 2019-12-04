@@ -3,3 +3,17 @@
 body {
     margin: 0;
 }
+
+.as-horizontal{
+  .as-split-gutter {
+    background-color: #DFE4EA !important;
+    &-icon{
+      background: #99A6B7;
+      height: 27px !important;
+      width: 3px !important;
+      border-radius: 20%;
+      background-image: none !important;
+    }
+  }
+
+}

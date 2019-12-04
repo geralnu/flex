@@ -4,30 +4,147 @@
         <nav>
             <li>
                 <a href="#">
-                    <h1>Header</h1>
+                    <h1>Pipeline</h1>
                 </a>
             </li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <span></span>
+            <li><a href="#">Doc Indexing</a></li>
         </nav>
+        <button>SUBMIT FOR DE</button>
     </header>
-    <div class="middle-top"></div>
+    <div class="middle-top">
+      <div class="header-info">
+        <p>Loan #</p>
+        848184542
+      </div>
+      <div class="header-info">
+        <p>BORROWER</p>
+        Jonathan Morehousingher
+      </div>
+      <div class="header-info">
+        <p>BLOB #</p>
+        12345
+      </div>
+      <div class="header-info">
+        <p>PAGES</p>
+        103
+      </div>
+      <div class="header-info">
+        <p>FILE UPLOADED</p>
+        2/27/19 12:43 pm
+      </div>
+    </div>
     <div class="main-and-sidebar-wrapper">
-        <div class="aside-bar"></div>
-        <as-split unit="pixel" [direction]="direction" (dragEnd)="dragEnd('pixel', $event)">
-            <as-split-area size="344" minSize="344" maxSize="400" #area1="asSplitArea">
+        <as-split unit="pixel"  gutterSize="11" (dragEnd)="log($event)">
+
+            <as-split-area  minSize="348" maxSize="1500" size="600" [visible]="isVisibleA" #area1="asSplitArea">
                 <aside class="sidebar">
-                    <h3>Sidebar</h3>
+                  <div class="sidebar-tabs">
+                    <div class="sidebar-tabs-tab selected">
+                      <div class="tab-icon"></div>
+                      <h2>TREEVIEW</h2>
+                    </div>
+                    <div class="sidebar-tabs-tab">
+                      <div class="tab-icon"></div>
+                      <h2>THUMBNAILS</h2>
+                    </div>
+                  </div>
+                  <div class="sidebar-content"></div>
+                  <div class="sidebar-footer">
+                    <div class="collapse-btn" (click)="collapseArea()"></div>
+                  </div>
                 </aside>
             </as-split-area>
-            <as-split-area size="1020" #area2="asSplitArea">
+            <as-split-area maxSize="1270" minSize="400">
                 <section class="main">
-                    <h2>Flexbox</h2>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <div class="main-top">
+                    <h2>Unattached Bucket</h2>
+                    <div class="icon-container">
+                      <div class="icon">
+                        <span>SAVE</span>
+                      </div>
+                      <div class="icon">
+                        <span>PRINT</span>
+                      </div>
+                      <div class="icon">
+                        <span>EXPORT</span>
+                      </div>
+                      <div class="icon">
+                        <span>IMPORT</span>
+                      </div>
+                    </div>
+                    <div class="zoom-controls"></div>
+                  </div>
+                  <div class="main-body">
+                      <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                        <div class="card">
+                        <img src="/assets/dots.png" alt="">
+                          <div class="content-card"></div>
+                        </div>
+                  </div>
 
                 </section>
             </as-split-area>
+
         </as-split>
 
 
