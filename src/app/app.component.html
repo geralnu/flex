@@ -1,138 +1,204 @@
 <div class="container">
-    <div class="topper"></div>
-    <header>
-        <nav>
-            <li>
-                <a href="#">
-                    <h1>Pipeline</h1>
-                </a>
-            </li>
-            <span></span>
-            <li><a href="#">Doc Indexing</a></li>
-        </nav>
-        <button>SUBMIT FOR DE</button>
-    </header>
-    <div class="middle-top">
-        <div class="header-info">
-            <p>Loan #</p>
-            848184542
-        </div>
-        <div class="header-info">
-            <p>BORROWER</p>
-            Jonathan Morehousingher
-        </div>
-        <div class="header-info">
-            <p>BLOB #</p>
-            12345
-        </div>
-        <div class="header-info">
-            <p>PAGES</p>
-            103
-        </div>
-        <div class="header-info">
-            <p>FILE UPLOADED</p>
-            2/27/19 12:43 pm
-        </div>
+  <div class="topper"></div>
+  <header>
+    <nav>
+      <li>
+        <a href="#">
+          <h1>Pipeline</h1>
+        </a>
+      </li>
+      <span></span>
+      <li><a href="#">Doc Indexing</a></li>
+    </nav>
+    <button>SUBMIT FOR DE</button>
+  </header>
+  <div class="middle-top">
+    <div class="header-info">
+      <p>Loan #</p>
+      848184542
     </div>
-    <div class="main-and-sidebar-wrapper">
-        <as-split unit="pixel" gutterSize="11" (dragEnd)="log($event)">
-
-            <as-split-area minSize="348" maxSize="1500" size="600" [visible]="isVisibleA" #area1="asSplitArea">
-                <aside class="sidebar">
-                    <div class="sidebar-tabs">
-                        <div class="sidebar-tabs-tab selected">
-                            <div class="tab-icon"></div>
-                            <h2>TREEVIEW</h2>
-                        </div>
-                        <div class="sidebar-tabs-tab">
-                            <div class="tab-icon"></div>
-                            <h2>THUMBNAILS</h2>
-                        </div>
-                    </div>
-                    <div class="sidebar-content">
-                        <button> <span>+</span> CREATE NEW DOCUMENT TYPE</button>
-                        <ul>
-                            <li>
-                                <div></div>
-                                <p>Archived (0)</p>
-                            </li>
-                            <li>
-                                <div></div>
-                                <p>Unattached Bucket</p>
-                            </li>
-                            <li>
-                                <div></div>
-                                <p>1003</p>
-                            </li>
-                            <li>
-                                <div></div>
-                                <p>1004</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-footer">
-                        <div class="collapse-btn" (click)="collapseArea()"></div>
-                    </div>
-                </aside>
-            </as-split-area>
-            <as-split-area maxSize="1270" minSize="400" size="1150">
-                <section class="main">
-                    <div class="main-top">
-                        <h2>Unattached Bucket</h2>
-                        <div class="icon-container">
-                            <div class="icon">
-                                <span>SAVE</span>
-                            </div>
-                            <div class="icon">
-                                <span>PRINT</span>
-                            </div>
-                            <div class="icon">
-                                <span>EXPORT</span>
-                            </div>
-                            <div class="icon">
-                                <span>IMPORT</span>
-                            </div>
-                        </div>
-                        <div class="zoom-controls">
-                            <button class="transparent-button" (click)="zoomToggle(false)">-</button>
-                            <input type="range" class="slider">
-                            <button class="transparent-button" (click)="zoomToggle(true)">+</button>
-                            <span>{{currentZoomLevel * 100}}%</span>
-                        </div>
-                    </div>
-                    <div class="main-body">
-                        <div class="card" [style.width.px]="width" [style.height.px]="height">
-                            <div><img src="/assets/dots.png" alt=""></div>
-                            <div class="content-card"></div>
-                        </div>
-                        <div class="card" [style.width.px]="width" [style.height.px]="height">
-                            <div><img src="/assets/dots.png" alt=""></div>
-                            <div class="content-card"></div>
-                        </div>
-                        <div class="card" [style.width.px]="width" [style.height.px]="height">
-                            <div><img src="/assets/dots.png" alt=""></div>
-                            <div class="content-card"></div>
-                        </div>
-                        <div class="card" [style.width.px]="width" [style.height.px]="height">
-                            <div><img src="/assets/dots.png" alt=""></div>
-                            <div class="content-card"></div>
-                        </div>
-                        <div class="card" [style.width.px]="width" [style.height.px]="height">
-                            <div><img src="/assets/dots.png" alt=""></div>
-                            <div class="content-card"></div>
-                        </div>
-
-                    </div>
-
-                </section>
-            </as-split-area>
-
-        </as-split>
-
-
-
-
-
+    <div class="header-info">
+      <p>BORROWER</p>
+      Jonathan Morehousingher
     </div>
-
+    <div class="header-info">
+      <p>BLOB #</p>
+      12345
+    </div>
+    <div class="header-info">
+      <p>PAGES</p>
+      103
+    </div>
+    <div class="header-info">
+      <p>FILE UPLOADED</p>
+      2/27/19 12:43 pm
+    </div>
+  </div>
+  <div class="main-and-sidebar-wrapper">
+    <as-split unit="pixel" gutterSize="11" (dragEnd)="log($event)">
+      <as-split-area
+        [minSize]="panelSidebar"
+        [size]="panelSidebar"
+        [visible]="isVisibleA"
+        #area1="asSplitArea"
+        [style]="style"
+      >
+        <aside class="sidebar">
+          <div class="sidebar-icons" *ngIf="collapsed">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="sidebar-tabs" *ngIf="!collapsed">
+            <div class="sidebar-tabs-tab selected">
+              <div class="tab-icon"></div>
+              <h2>TREEVIEW</h2>
+            </div>
+            <div class="sidebar-tabs-tab">
+              <div class="tab-icon"></div>
+              <h2>THUMBNAILS</h2>
+            </div>
+          </div>
+          <div class="sidebar-content" *ngIf="!collapsed">
+            <div >
+              <button><span>+</span> CREATE NEW DOCUMENT TYPE</button>
+              <ul>
+                <li>
+                  <div></div>
+                  <p>Archived (0)</p>
+                </li>
+                <li>
+                  <div></div>
+                  <p>Unattached Bucket</p>
+                </li>
+                <li>
+                  <div></div>
+                  <p>1003</p>
+                </li>
+                <li>
+                  <div></div>
+                  <p>1004</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-footer">
+            <div class="collapse-btn" (click)="collapseArea()"></div>
+          </div>
+        </aside>
+      </as-split-area>
+      <as-split-area maxSize="1573" minSize="1422" size="1573">
+        <section class="main">
+          <div class="main-top">
+            <h2>Unattached Bucket</h2>
+            <div class="icon-container">
+              <div class="icon">
+                <span>SAVE</span>
+              </div>
+              <div class="icon">
+                <span>PRINT</span>
+              </div>
+              <div class="icon">
+                <span>EXPORT</span>
+              </div>
+              <div class="icon">
+                <span>IMPORT</span>
+              </div>
+            </div>
+            <div class="zoom-controls">
+              <button class="transparent-button" (click)="zoomToggle(false)">
+                -
+              </button>
+              <input type="range" class="slider" />
+              <button class="transparent-button" (click)="zoomToggle(true)">
+                +
+              </button>
+              <span>{{ currentZoomLevel * 100 }}%</span>
+            </div>
+          </div>
+          <div class="main-body">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
+              <div><img src="/assets/dots.png" alt="" /></div>
+              <div class="content-card"></div>
+            </div>
+          </div>
+        </section>
+      </as-split-area>
+    </as-split>
+  </div>
 </div>

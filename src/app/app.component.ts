@@ -33,14 +33,17 @@ export class AppComponent implements AfterViewInit {
     height = this.originalHeight;
     width = this.originalWidth;
   title = 'flex-split';
-
+  panelSidebar: any = '100%';
+  collapsed = false;
+  style;
+  flexAuto= 'flexAuto';
   ngAfterViewInit() {
-
     this.zoomLevels = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
     this.currentZoomLevel = this.zoomLevels[4];
     // panzoom(document.querySelector('#scene'));
     this.panZoomController = panzoom(this.panel.nativeElement);
   }
+
   dragEnd(unit, { sizes }) {
     if (unit === 'percent') {
       this.sizes.percent.area1 = sizes[0];
@@ -51,14 +54,23 @@ export class AppComponent implements AfterViewInit {
       this.sizes.pixel.area3 = sizes[2];
     }
   }
+
   log(x) {
     console.log('dragEnd ', x.sizes, ' total > ', x.sizes.reduce((t, s) => t + s, 0));
   }
+
   collapseArea() {
-    console.log('oki');
-    this.sizes.pixel.area1 = 50;
-    // this.isVisibleA = !this.isVisibleA;
+    this.collapsed = !this.collapsed;
+    if (this.collapsed) {
+      this.style = "flex: inherit";
+      this.panelSidebar = 60;
+    } else {
+      this.style = '';
+      this.flexAuto ='';
+      this.panelSidebar = '100%';
+    }
   }
+
   zoom() {
     const isSmooth = false;
     const scale = this.currentZoomLevel;
