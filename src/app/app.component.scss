@@ -143,6 +143,9 @@ header nav {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            position: relative;
+            left: 40%;
+            top: -8px;
             .icon {
                 width: 21px;
                 height: 21px;
@@ -187,6 +190,9 @@ header nav {
         }
         .zoom-controls {
             margin: 0 0 0 50px;
+            position: relative;
+            top: -5px;
+            left: 41%;
             .slider {
                 -webkit-appearance: none;
                 width: 163px;
