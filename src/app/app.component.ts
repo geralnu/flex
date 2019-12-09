@@ -36,7 +36,7 @@ export class AppComponent implements AfterViewInit {
   panelSidebar: any = '100%';
   collapsed = false;
   style;
-  flexAuto= 'flexAuto';
+  flexAuto = 'flexAuto';
   ngAfterViewInit() {
     this.zoomLevels = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
     this.currentZoomLevel = this.zoomLevels[4];
@@ -62,11 +62,11 @@ export class AppComponent implements AfterViewInit {
   collapseArea() {
     this.collapsed = !this.collapsed;
     if (this.collapsed) {
-      this.style = "flex: inherit";
+      this.style = 'flex: inherit';
       this.panelSidebar = 60;
     } else {
       this.style = '';
-      this.flexAuto ='';
+      this.flexAuto = '';
       this.panelSidebar = '100%';
     }
   }
