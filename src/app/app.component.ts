@@ -26,21 +26,18 @@ export class AppComponent implements AfterViewInit {
   };
   panZoomController;
   zoomLevels: number[];
-   currentZoomLevel: number;
-  // isVisibleA = true;
-    originalHeight = 397;
-    originalWidth = 276;
-    height = this.originalHeight;
-    width = this.originalWidth;
-  title = 'flex-split';
-  panelSidebar: any = '100%';
+  currentZoomLevel: number;
+  originalHeight = 397;
+  originalWidth = 276;
+  height = this.originalHeight;
+  width = this.originalWidth;
+  panelSidebar = 18;
+  panelMain = 82;
   collapsed = false;
-  style;
-  flexAuto = 'flexAuto';
+
   ngAfterViewInit() {
     this.zoomLevels = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
     this.currentZoomLevel = this.zoomLevels[4];
-    // panzoom(document.querySelector('#scene'));
     this.panZoomController = panzoom(this.panel.nativeElement);
   }
 
@@ -62,17 +59,15 @@ export class AppComponent implements AfterViewInit {
   collapseArea() {
     this.collapsed = !this.collapsed;
     if (this.collapsed) {
-      this.style = 'flex: inherit';
-      this.panelSidebar = 60;
+      this.panelSidebar = 3;
+      this.panelMain = 97;
     } else {
-      this.style = '';
-      this.flexAuto = '';
-      this.panelSidebar = '100%';
+      this.panelSidebar = 18;
+      this.panelMain = 82;
     }
   }
 
   zoom() {
-    const isSmooth = false;
     const scale = this.currentZoomLevel;
     if (scale) {
       this.width = this.originalWidth * scale ;

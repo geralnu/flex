@@ -35,13 +35,11 @@
     </div>
   </div>
   <div class="main-and-sidebar-wrapper">
-    <as-split unit="pixel" gutterSize="11" (dragEnd)="log($event)">
+    <as-split unit="percent" gutterSize="11" (dragEnd)="log($event)">
       <as-split-area
         [minSize]="panelSidebar"
         [size]="panelSidebar"
-        [visible]="isVisibleA"
         #area1="asSplitArea"
-        [style]="style"
       >
         <aside class="sidebar">
           <div class="sidebar-icons" *ngIf="collapsed">
@@ -82,11 +80,15 @@
             </div>
           </div>
           <div class="sidebar-footer">
-            <div class="collapse-btn" (click)="collapseArea()"></div>
+            <div class="collapse-btn" (click)="collapseArea()">
+                <span [ngClass]="{arrowShow: !collapsed, arrowHide: collapsed}"></span>
+            </div>
           </div>
         </aside>
+
       </as-split-area>
-      <as-split-area maxSize="1573" minSize="1422" size="1573">
+      <as-split-area [maxSize]="panelMain" minSize="70" [size]="panelMain">
+
         <section class="main">
           <div class="main-top">
             <h2>Unattached Bucket</h2>
@@ -198,6 +200,7 @@
             </div>
           </div>
         </section>
+
       </as-split-area>
     </as-split>
   </div>
