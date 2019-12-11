@@ -463,10 +463,13 @@ header nav {
       border-right: 1px solid #E1E1E1;
       height: 100%;
 
-      .span {
+      .arrowFooter {
         background-color: #949494;
-        height: 8px;
-        width: 12px;
+        height: 14px;
+        width: 10px;
+        position: relative;
+        top: 19px;
+        left: 20px;
 
         &.arrowShow {
           clip-path: polygon(0 50%, 100% 100%, 100% 0);
