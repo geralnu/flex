@@ -36,52 +36,101 @@
   </div>
   <div class="main-and-sidebar-wrapper">
     <as-split unit="percent" gutterSize="11" (dragEnd)="log($event)">
-      <as-split-area
-        [minSize]="panelSidebar"
-        [size]="panelSidebar"
-        #area1="asSplitArea"
-      >
+      <as-split-area [minSize]="panelSidebar" [size]="panelSidebar" #area1="asSplitArea">
         <aside class="sidebar">
           <div class="sidebar-icons" *ngIf="collapsed">
             <div></div>
             <div></div>
           </div>
           <div class="sidebar-tabs" *ngIf="!collapsed">
-            <div class="sidebar-tabs-tab selected">
+            <div class="sidebar-tabs-tab" [ngClass]="tab == 1 ? 'selected' : ''" (click)="addClass(1)">
               <div class="tab-icon"></div>
               <h2>TREEVIEW</h2>
             </div>
-            <div class="sidebar-tabs-tab">
+            <div class="sidebar-tabs-tab" [ngClass]="tab == 2 ? 'selected' : ''" (click)="addClass(2)">
               <div class="tab-icon"></div>
               <h2>THUMBNAILS</h2>
             </div>
           </div>
           <div class="sidebar-content" *ngIf="!collapsed">
-            <div >
+            <div>
               <button><span>+</span> CREATE NEW DOCUMENT TYPE</button>
-              <ul>
-                <li>
-                  <div></div>
-                  <p>Archived (0)</p>
+
+              <ul class="list" *ngIf="tab == 1">
+                <li (click)="openSublist()">
+                  <a href="#">
+                    <div class="arrow open" ></div>
+                    <div></div>
+                    <p>Archived (0)</p>
+                  </a>
+                  <ul class="sublist" *ngIf="showSublist">
+                    <li class="subitems">
+                      <div class="icon"></div>
+                      <p>Image 1</p>
+                    </li>
+                    <li class="subitems">
+                      <div class="icon"></div>
+                      <p>Image 2</p>
+                    </li>
+                    <li class="subitems">
+                      <div class="icon"></div>
+                      <p>Image 3</p>
+                    </li>
+                    <li class="subitems">
+                      <div class="icon"></div>
+                      <p>Image 4</p>
+                    </li>
+                  </ul>
                 </li>
                 <li>
-                  <div></div>
-                  <p>Unattached Bucket</p>
+                  <a href="#">
+                    <div class="arrow closed"></div>
+                    <div></div>
+                    <p>Unattached Bucket</p>
+                  </a>
                 </li>
                 <li>
-                  <div></div>
-                  <p>1003</p>
+                  <a href="#">
+                    <div class="arrow closed"></div>
+                    <div></div>
+                    <p>1003</p>
+                  </a>
                 </li>
                 <li>
-                  <div></div>
-                  <p>1004</p>
+                  <a href="#">
+                   <div class="arrow closed"></div>
+                   <div></div>
+                   <p>1004</p>
+                  </a>
+                </li>
+              </ul>
+              <ul *ngIf="tab == 2">
+                <li><a href="#">
+                    <div></div>
+                    <p>Archived (0)</p>
+                  </a>
+                </li>
+                <li><a href="#">
+                    <div></div>
+                    <p>Unattached Bucket</p>
+                  </a>
+                </li>
+                <li><a href="#">
+                    <div></div>
+                    <p>1003</p>
+                  </a>
+                </li>
+                <li><a href="#">
+                    <div></div>
+                    <p>1004</p>
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
           <div class="sidebar-footer">
             <div class="collapse-btn" (click)="collapseArea()">
-                <span [ngClass]="{arrowShow: !collapsed, arrowHide: collapsed}"></span>
+              <span [ngClass]="{arrowShow: !collapsed, arrowHide: collapsed}"></span>
             </div>
           </div>
         </aside>
@@ -118,83 +167,43 @@
             </div>
           </div>
           <div class="main-body">
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div
-              class="card"
-              [style.width.px]="width"
-              [style.height.px]="height"
-            >
+            <div class="card" [style.width.px]="width" [style.height.px]="height">
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
