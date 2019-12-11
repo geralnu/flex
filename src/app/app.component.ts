@@ -35,6 +35,7 @@ export class AppComponent implements AfterViewInit {
   panelMain = 82;
   collapsed = false;
   tab = 1;
+  sublist = 0;
   ngAfterViewInit() {
     this.zoomLevels = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
     this.currentZoomLevel = this.zoomLevels[4];
@@ -59,8 +60,8 @@ export class AppComponent implements AfterViewInit {
   collapseArea() {
     this.collapsed = !this.collapsed;
     if (this.collapsed) {
-      this.panelSidebar = 4;
-      this.panelMain = 96;
+      this.panelSidebar = 3;
+      this.panelMain = 97;
     } else {
       this.panelSidebar = 18;
       this.panelMain = 82;
@@ -94,8 +95,9 @@ export class AppComponent implements AfterViewInit {
     this.tab = numTab;
     console.log(numTab);
   }
-  openSublist(e) {
-    console.log(e);
+  openSublist(sublistNum) {
+    console.log(sublistNum);
+    this.sublist = sublistNum;
 
   }
 }

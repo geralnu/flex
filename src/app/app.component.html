@@ -10,206 +10,359 @@
       <span></span>
       <li><a href="#">Doc Indexing</a></li>
     </nav>
-    <button>SUBMIT FOR DE</button>
   </header>
   <div class="middle-top">
-    <div class="header-info">
-      <p>Loan #</p>
-      848184542
+    <div class="middle-top-content">
+      <div class="header-info">
+        <p>Loan #</p>
+        848184542
+      </div>
+      <div class="header-info">
+        <p>BORROWER</p>
+        Jonathan Morehousingher
+      </div>
+      <div class="header-info">
+        <p>BLOB #</p>
+        12345
+      </div>
+      <div class="header-info">
+        <p>PAGES</p>
+        103
+      </div>
+      <div class="header-info">
+        <p>FILE UPLOADED</p>
+        2/27/19 12:43 pm
+      </div>
     </div>
-    <div class="header-info">
-      <p>BORROWER</p>
-      Jonathan Morehousingher
-    </div>
-    <div class="header-info">
-      <p>BLOB #</p>
-      12345
-    </div>
-    <div class="header-info">
-      <p>PAGES</p>
-      103
-    </div>
-    <div class="header-info">
-      <p>FILE UPLOADED</p>
-      2/27/19 12:43 pm
-    </div>
+
+    <button>SUBMIT FOR EXTRACTION</button>
   </div>
   <div class="main-and-sidebar-wrapper">
     <as-split unit="percent" gutterSize="11" (dragEnd)="log($event)">
-      <as-split-area [minSize]="panelSidebar" [size]="panelSidebar" #area1="asSplitArea">
+      <as-split-area
+        [minSize]="panelSidebar"
+        [size]="panelSidebar"
+        #area1="asSplitArea"
+      >
         <aside class="sidebar">
           <div class="sidebar-icons" *ngIf="collapsed">
             <div></div>
             <div></div>
           </div>
           <div class="sidebar-tabs" *ngIf="!collapsed">
-            <div class="sidebar-tabs-tab" [ngClass]="tab == 1 ? 'selected' : ''" (click)="addClass(1)">
+            <div
+              class="sidebar-tabs-tab"
+              [ngClass]="tab == 1 ? 'selected' : ''"
+              (click)="addClass(1)"
+            >
               <div class="tab-icon"></div>
               <h2>TREEVIEW</h2>
             </div>
-            <div class="sidebar-tabs-tab" [ngClass]="tab == 2 ? 'selected' : ''" (click)="addClass(2)">
+            <div
+              class="sidebar-tabs-tab"
+              [ngClass]="tab == 2 ? 'selected' : ''"
+              (click)="addClass(2)"
+            >
               <div class="tab-icon"></div>
               <h2>THUMBNAILS</h2>
             </div>
           </div>
           <div class="sidebar-content" *ngIf="!collapsed">
-            <div>
-              <button><span>+</span> CREATE NEW DOCUMENT TYPE</button>
+            <nav>
+              <button><span>+</span> NEW DOCUMENT TYPE <span> (CTRL + N)</span></button>
 
-              <ul class="list" *ngIf="tab == 1">
-                <li (click)="openSublist()">
-                  <a href="#">
-                    <div class="arrow open" ></div>
-                    <div></div>
-                    <p>Archived (0)</p>
-                  </a>
-                  <ul class="sublist" *ngIf="showSublist">
-                    <li class="subitems">
-                      <div class="icon"></div>
-                      <p>Image 1</p>
+              <div class="multilevel" *ngIf="tab == 1">
+                <div class="item">
+                  <input type="checkbox" id="A" />
+                  <div class="arrow"></div>
+                  <div class="item-folder"></div>
+                  <label for="A">Archived (0)</label>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 1</a
+                      >
                     </li>
-                    <li class="subitems">
-                      <div class="icon"></div>
-                      <p>Image 2</p>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 2</a
+                      >
                     </li>
-                    <li class="subitems">
-                      <div class="icon"></div>
-                      <p>Image 3</p>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 3</a
+                      >
                     </li>
-                    <li class="subitems">
-                      <div class="icon"></div>
-                      <p>Image 4</p>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 4</a
+                      >
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <a href="#">
-                    <div class="arrow closed"></div>
-                    <div></div>
-                    <p>Unattached Bucket</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div class="arrow closed"></div>
-                    <div></div>
-                    <p>1003</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                   <div class="arrow closed"></div>
-                   <div></div>
-                   <p>1004</p>
-                  </a>
-                </li>
-              </ul>
-              <ul *ngIf="tab == 2">
-                <li><a href="#">
-                    <div></div>
-                    <p>Archived (0)</p>
-                  </a>
-                </li>
-                <li><a href="#">
-                    <div></div>
-                    <p>Unattached Bucket</p>
-                  </a>
-                </li>
-                <li><a href="#">
-                    <div></div>
-                    <p>1003</p>
-                  </a>
-                </li>
-                <li><a href="#">
-                    <div></div>
-                    <p>1004</p>
-                  </a>
-                </li>
-              </ul>
-            </div>
+                </div>
+                <div class="item">
+                  <input type="checkbox" id="B" />
+                  <div class="arrow"></div>
+                  <div class="item-folder"></div>
+                  <label for="B">Unattached Bucket</label>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 1</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 2</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 3</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 4</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="item">
+                  <input type="checkbox" id="C" />
+                  <div class="arrow"></div>
+                  <div class="item-folder"></div>
+                  <label for="C">1003</label>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 1</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 2</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 3</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 4</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="item">
+                  <input type="checkbox" id="D" />
+                  <div class="arrow"></div>
+                  <div class="item-folder"></div>
+                  <label for="D">1004</label>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 1</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 2</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 3</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><div class="icon"></div>
+                        Image 4</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="multilevel" id="secondTab" *ngIf="tab == 2">
+                  <div class="item">
+                    <input type="checkbox" id="AA" />
+                    <div class="item-folder"></div>
+                    <label for="AA">Archived (0)</label>
+                    <div class="numberPages">
+                        <img src="/assets/image.png" alt="">
+                    </div>
+                  </div>
+                  <div class="item">
+                    <input type="checkbox" id="BB" />
+                    <div class="item-folder"></div>
+                    <label for="BB">Unattached Bucket</label>
+                    <div class="numberPages">
+                        <img src="/assets/image.png" alt="">
+                    </div>
+                  </div>
+                  <div class="item">
+                    <input type="checkbox" id="CC" />
+                    <div class="item-folder"></div>
+                    <label for="CC">1003</label>
+                    <div class="numberPages">
+                        <img src="/assets/image.png" alt="">
+                    </div>
+                  </div>
+                  <div class="item">
+                    <input type="checkbox" id="DD" />
+                    <div class="item-folder"></div>
+                    <label for="DD">1004</label>
+                    <div class="numberPages">
+                        <img src="/assets/image.png" alt="">
+                    </div>
+                  </div>
+              </div>
+
+            </nav>
           </div>
           <div class="sidebar-footer">
             <div class="collapse-btn" (click)="collapseArea()">
-              <div class="arrowFooter" [ngClass]="{arrowShow: !collapsed, arrowHide: collapsed}"></div>
+              <div
+                class="arrowFooter"
+                [ngClass]="{ arrowShow: !collapsed, arrowHide: collapsed }"
+              ></div>
             </div>
           </div>
         </aside>
-
       </as-split-area>
       <as-split-area [maxSize]="panelMain" minSize="70" [size]="panelMain">
-
         <section class="main">
           <div class="main-top">
             <h2>Unattached Bucket</h2>
-            <div class="icon-container">
-              <div class="icon">
-                <span>SAVE</span>
-              </div>
-              <div class="icon">
-                <span>PRINT</span>
-              </div>
-              <div class="icon">
-                <span>EXPORT</span>
-              </div>
-              <div class="icon">
-                <span>IMPORT</span>
-              </div>
-            </div>
-            <div class="zoom-controls">
-              <button class="transparent-button" (click)="zoomToggle(false)">
-                -
-              </button>
-              <input type="range" class="slider" />
-              <button class="transparent-button" (click)="zoomToggle(true)">
-                +
-              </button>
-              <span>{{ currentZoomLevel * 100 }}%</span>
+            <div class="main-buttons">
+                <div class="icon-container">
+                  <div class="icon">
+                    <span>MOVE (CTRL + M)</span>
+                  </div>
+                  <div class="icon">
+                    <span>PRINT (CTRL + P)</span>
+                  </div>
+                  <div class="icon">
+                    <span>UPLOAD (CTRL + U)</span>
+                  </div>
+                  <div class="icon">
+                    <span>DOWNLOAD (CTRL + D)</span>
+                  </div>
+                </div>
+                <div class="zoom-controls">
+                  <button class="transparent-button" (click)="zoomToggle(false)">
+                    -
+                  </button>
+                  <input type="range" class="slider" />
+                  <button class="transparent-button" (click)="zoomToggle(true)">
+                    +
+                  </button>
+                  <span>{{ currentZoomLevel * 100 }}%</span>
+                </div>
             </div>
           </div>
           <div class="main-body">
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
-            <div class="card" [style.width.px]="width" [style.height.px]="height">
+            <div
+              class="card"
+              [style.width.px]="width"
+              [style.height.px]="height"
+            >
               <div><img src="/assets/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
           </div>
         </section>
-
       </as-split-area>
     </as-split>
   </div>

@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AngularSplitModule } from 'angular-split';
 import { AppComponent } from './app.component';
+import { PipelineComponent } from './pipeline/pipeline.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PipelineComponent
   ],
   imports: [
     BrowserModule,
