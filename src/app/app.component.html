@@ -45,11 +45,11 @@
         #area1="asSplitArea"
       >
         <aside class="sidebar">
-          <div class="sidebar-icons" *ngIf="collapsed">
+          <div class="sidebar-icons" *ngIf="collapsed" >
             <div></div>
             <div></div>
           </div>
-          <div class="sidebar-tabs" *ngIf="!collapsed">
+          <div class="sidebar-tabs" *ngIf="!collapsed && isShortHidden">
             <div
               class="sidebar-tabs-tab"
               [ngClass]="tab == 1 ? 'selected' : ''"
@@ -67,7 +67,7 @@
               <h2>THUMBNAILS</h2>
             </div>
           </div>
-          <div class="sidebar-content" *ngIf="!collapsed">
+          <div class="sidebar-content" *ngIf="!collapsed && isShortHidden">
             <nav>
               <button><span>+</span> NEW DOCUMENT TYPE <span> (CTRL + N)</span></button>
 
@@ -208,7 +208,7 @@
                     <div class="item-folder"></div>
                     <label for="AA">Archived (0)</label>
                     <div class="numberPages">
-                        <img src="/assets/image.png" alt="">
+                        <img src="./assets/img/image.png" alt="">
                     </div>
                   </div>
                   <div class="item">
@@ -216,7 +216,7 @@
                     <div class="item-folder"></div>
                     <label for="BB">Unattached Bucket</label>
                     <div class="numberPages">
-                        <img src="/assets/image.png" alt="">
+                        <img src="./assets/img/image.png" alt="">
                     </div>
                   </div>
                   <div class="item">
@@ -224,7 +224,7 @@
                     <div class="item-folder"></div>
                     <label for="CC">1003</label>
                     <div class="numberPages">
-                        <img src="/assets/image.png" alt="">
+                        <img src="./assets/img/image.png" alt="">
                     </div>
                   </div>
                   <div class="item">
@@ -232,12 +232,47 @@
                     <div class="item-folder"></div>
                     <label for="DD">1004</label>
                     <div class="numberPages">
-                        <img src="/assets/image.png" alt="">
+                        <img src="/assets/img/image.png" alt="">
                     </div>
                   </div>
               </div>
 
             </nav>
+          </div>
+          <div class="sidebar-shortcuts" *ngIf="!isShortHidden">
+            <div class="title">Keyboard Shortcuts</div>
+            <div class="shortcuts-panel">
+              <div class="wrapper">
+                <div class="name">COPY</div>
+                <div class="btn f">CTRL</div>
+                <div class="plus">+</div>
+                <div class="btn">C</div>
+              </div>
+              <div class="wrapper">
+                <div class="name">PASTE</div>
+                <div class="btn f">CTRL</div>
+                <div class="plus">+</div>
+                <div class="btn">V</div>
+              </div>
+              <div class="wrapper">
+                <div class="name">MOVE</div>
+                <div class="btn f">CTRL</div>
+                <div class="plus">+</div>
+                <div class="btn">M</div>
+              </div>
+              <div class="wrapper">
+                <div class="name">UPLOAD</div>
+                <div class="btn f">CTRL</div>
+                <div class="plus">+</div>
+                <div class="btn">U</div>
+              </div>
+              <div class="wrapper">
+                <div class="name">DOWNLOAD</div>
+                <div class="btn f">CTRL</div>
+                <div class="plus">+</div>
+                <div class="btn">D</div>
+              </div>
+            </div>
           </div>
           <div class="sidebar-footer">
             <div class="collapse-btn" (click)="collapseArea()">
@@ -246,13 +281,22 @@
                 [ngClass]="{ arrowShow: !collapsed, arrowHide: collapsed }"
               ></div>
             </div>
+
+            <div class="shortcuts" (click)="isShortHidden = !isShortHidden">
+                <p>Keyboard Shortcuts</p>
+                <img src="./assets/img/keyboard.png" alt="">
+              </div>
           </div>
         </aside>
       </as-split-area>
       <as-split-area [maxSize]="panelMain" minSize="70" [size]="panelMain">
         <section class="main">
           <div class="main-top">
-            <h2>Unattached Bucket</h2>
+            <div>
+                <h2>Unattached Bucket</h2>
+                <div class="errorMessage"><div class="badge danger"></div> Please verify the content in this document type</div>
+            </div>
+
             <div class="main-buttons">
                 <div class="icon-container">
                   <div class="icon">
@@ -272,7 +316,7 @@
                   <button class="transparent-button" (click)="zoomToggle(false)">
                     -
                   </button>
-                  <input type="range" class="slider" />
+                  <input type="range" class="slider" min="0" max="3" [step]="stepInput" [value]="currentZoomLevel" #ref (change)="changeZoom($event)"/>
                   <button class="transparent-button" (click)="zoomToggle(true)">
                     +
                   </button>
@@ -286,7 +330,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -294,7 +338,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -302,7 +346,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -310,7 +354,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -318,7 +362,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -326,7 +370,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -334,7 +378,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -342,7 +386,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -350,7 +394,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
             <div
@@ -358,7 +402,7 @@
               [style.width.px]="width"
               [style.height.px]="height"
             >
-              <div><img src="/assets/dots.png" alt="" /></div>
+              <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>
             </div>
           </div>

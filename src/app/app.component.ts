@@ -36,13 +36,17 @@ export class AppComponent implements AfterViewInit {
   collapsed = false;
   tab = 1;
   sublist = 0;
+  stepInput = 0.25;
+  prevValue;
+  isShortHidden = true;
+
   ngAfterViewInit() {
     this.zoomLevels = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
-    this.currentZoomLevel = this.zoomLevels[4];
-    this.panZoomController = panzoom(this.panel.nativeElement);
+    this.currentZoomLevel = this.zoomLevels[6];
+    this.prevValue = this.currentZoomLevel;
   }
 
-  dragEnd(unit, { sizes }) {
+  /*dragEnd(unit, { sizes }) {
     if (unit === 'percent') {
       this.sizes.percent.area1 = sizes[0];
       this.sizes.percent.area2 = sizes[1];
@@ -51,7 +55,7 @@ export class AppComponent implements AfterViewInit {
       this.sizes.pixel.area2 = sizes[1];
       this.sizes.pixel.area3 = sizes[2];
     }
-  }
+  }*/
 
   log(x) {
     console.log('dragEnd ', x.sizes, ' total > ', x.sizes.reduce((t, s) => t + s, 0));
@@ -68,12 +72,30 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
+  changeZoom(event) {
+    let zoomValue = event.target.value;
+
+    if (zoomValue == 1.50 &&  this.prevValue == 2) {
+      zoomValue = 1.75;
+    }
+    if (zoomValue >= 2) {
+      this.stepInput = 0.5;
+    }else if( zoomValue < 2) {
+      this.stepInput = 0.25;
+    }
+    this.currentZoomLevel = zoomValue;
+
+    console.log(zoomValue,'<-zoom  step->',this.stepInput);
+    console.log(`prev Value ${this.prevValue} -- actual Value ${this.currentZoomLevel}`);
+    this.prevValue = this.currentZoomLevel;
+    this.zoom();
+  }
+
   zoom() {
     const scale = this.currentZoomLevel;
     if (scale) {
       this.width = this.originalWidth * scale ;
       this.height = this.originalHeight * scale ;
-      console.log(`width: ${this.width}, height: ${this.height}`);
     }
   }
 

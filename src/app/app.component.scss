@@ -126,6 +126,22 @@ header nav {
   height: calc(100vh - 208px);
 }
 
+
+.badge{
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin: 0 10px 0 0 ;
+  &.warning {
+    background-color: #E5C32F;
+  }
+  &.danger {
+    background-color: #E5372F;
+  }
+  &.success {
+    background-color: #6EBE20;
+  }
+}
 .main {
   text-align: center;
   height: 100%;
@@ -137,7 +153,7 @@ header nav {
 
   //@at-root
   &-top {
-    margin: 0 13px 0 0;
+    margin: 0 13px 0 10px;
     display: flex;
     justify-content: space-between;
 
@@ -148,6 +164,13 @@ header nav {
       color: #575757;
       font-weight: 400;
       text-align: left;
+    }
+    .errorMessage{
+      margin: 14px 0;
+      font-size: 14px;
+      color: #E53027;
+      line-height: 16px;
+      display: flex;
     }
 
     .main-buttons {
@@ -165,10 +188,29 @@ header nav {
         .icon {
           width: 21px;
           height: 21px;
-          background: #EFEFEF;
           border-radius: 5px;
           position: relative;
 
+          &:nth-of-type(1){
+            background-image: url("/assets/img/folder.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &:nth-of-type(2){
+            background-image: url("/assets/img/printer.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &:nth-of-type(3){
+            background-image: url("/assets/img/upload.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &:nth-of-type(4){
+            background-image: url("/assets/img/download.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
           span {
             visibility: hidden;
             width: 160px;
@@ -182,7 +224,7 @@ header nav {
             z-index: 1;
             top: -35px;
             font-size: 14px;
-            left: -76px;
+            left: -80px;
 
             &:after {
               content: '';
@@ -205,6 +247,7 @@ header nav {
               visibility: visible;
             }
           }
+
         }
       }
 
@@ -291,19 +334,6 @@ header nav {
     }
   }
 }
-
-.main p {
-  margin-bottom: 50px;
-}
-
-.main img {
-  width: 80%;
-}
-
-#flexContent {
-  flex: auto !important;
-}
-
 
 /* Sidebar */
 
@@ -496,14 +526,63 @@ header nav {
 
 
   }
+  &-shortcuts {
+    width: 100%;
+    height: calc(100% - 54px);
+    padding: 40px 58px;
+    cursor: pointer;
+    .title{
+      color: #898989;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 19px;
+      margin: 0 0 40px 0;
+    }
+    .shortcuts-panel{
+      .wrapper {
+        display: flex;
+        width: 100%;
+        margin: 0 0 22px 0;
+      }
+      .name{
+        width: calc(100% - 125px);
+        margin: 10px 0px;
+      }
+      .name,.plus{
+        color: #949494;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 18px;
+      }
+      .plus {
+        margin: 10px 13px;
+      }
+      .btn{
+        border: 1px solid #979797;
+        border-radius: 3px;
+        background-color: #FFFFFF;
+        height: 38px;
+        width: 38px;
+        color: #949494;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 11px 10px;
+        text-align: center;
+        &.f{
+          padding: 10px;
+          width: fit-content;
+        }
+      }
+    }
+  }
 
   &-footer {
     height: 54px;
     border-top: 1px solid #E1E1E1;
-
+    display: flex;
+    justify-content: space-between;
     .collapse-btn {
       width: 61px;
-      border-right: 1px solid #E1E1E1;
       height: 100%;
       cursor: pointer;
       .arrowFooter {
@@ -523,6 +602,20 @@ header nav {
           clip-path: polygon(100% 51%, 0 100%, 0 0);
 
         }
+      }
+    }
+    .shortcuts{
+      display: flex;
+      margin: 17px;
+      p {
+        margin: 0 13px 0 0;
+        font-size: 15px;
+        line-height: 18px;
+        color: #898989;
+      }
+      img{
+        height: 18px;
+        width: 30px;
       }
     }
   }
