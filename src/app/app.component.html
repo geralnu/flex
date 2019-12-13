@@ -1,5 +1,18 @@
 <div class="container">
-  <div class="topper"></div>
+  <div class="topper">
+    <div class="logo">
+      <img src="./assets/img/logo.png" alt="">
+    </div>
+    <div class="right-header-icons">
+      <img class="icon" src="./assets/img/more.png" alt="">
+      <img class="icon" src="./assets/img/bell.png" alt="">
+      <img class="icon" src="./assets/img/user.png" alt="">
+      <div class="logout">
+        LL Admin
+        <div class="arrow"></div>
+      </div>
+    </div>
+  </div>
   <header>
     <nav>
       <li>
@@ -140,7 +153,10 @@
                   <input type="checkbox" id="C" />
                   <div class="arrow"></div>
                   <div class="item-folder"></div>
-                  <label for="C">1003</label>
+                  <label for="C">1003
+                      <div class="badge danger float-right"></div>
+                      <div class="document-status"> <div class="document-img"></div>4</div>
+                  </label>
                   <ul>
                     <li>
                       <a href="#"
@@ -172,7 +188,12 @@
                   <input type="checkbox" id="D" />
                   <div class="arrow"></div>
                   <div class="item-folder"></div>
-                  <label for="D">1004</label>
+                  <label for="D">1004
+
+                      <div class="badge warning float-right"></div>
+                      <div class="document-status"> <div class="document-img"></div>4</div>
+
+                  </label>
                   <ul>
                     <li>
                       <a href="#"
@@ -222,7 +243,8 @@
                   <div class="item">
                     <input type="checkbox" id="CC" />
                     <div class="item-folder"></div>
-                    <label for="CC">1003</label>
+                    <label for="CC">1003
+                    </label>
                     <div class="numberPages">
                         <img src="./assets/img/image.png" alt="">
                     </div>
@@ -232,14 +254,14 @@
                     <div class="item-folder"></div>
                     <label for="DD">1004</label>
                     <div class="numberPages">
-                        <img src="/assets/img/image.png" alt="">
+                        <img src="./assets/img/image.png" alt="">
                     </div>
                   </div>
               </div>
 
             </nav>
           </div>
-          <div class="sidebar-shortcuts" *ngIf="!isShortHidden">
+          <div class="sidebar-shortcuts" *ngIf="!isShortHidden && !collapsed">
             <div class="title">Keyboard Shortcuts</div>
             <div class="shortcuts-panel">
               <div class="wrapper">
@@ -282,7 +304,7 @@
               ></div>
             </div>
 
-            <div class="shortcuts" (click)="isShortHidden = !isShortHidden">
+            <div class="shortcuts" *ngIf="!collapsed" (click)="isShortHidden = !isShortHidden">
                 <p>Keyboard Shortcuts</p>
                 <img src="./assets/img/keyboard.png" alt="">
               </div>
@@ -298,6 +320,7 @@
             </div>
 
             <div class="main-buttons">
+              <button class="validate">VALIDATE</button>
                 <div class="icon-container">
                   <div class="icon">
                     <span>MOVE (CTRL + M)</span>
@@ -329,6 +352,7 @@
               class="card"
               [style.width.px]="width"
               [style.height.px]="height"
+              (click)="selectCard($event)"
             >
               <div><img src="./assets/img/dots.png" alt="" /></div>
               <div class="content-card"></div>

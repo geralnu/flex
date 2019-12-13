@@ -13,17 +13,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('area1', { static: false }) area1: SplitAreaDirective;
   @ViewChild('area2', { static: false }) area2: SplitAreaDirective;
   direction = 'horizontal';
-  sizes = {
-    percent: {
-      area1: 20,
-      area2: 70,
-    },
-    pixel: {
-      area1: 120,
-      area2: '*',
-      area3: 160,
-    }
-  };
+  sizes = {    percent: { area1: 20, area2: 70}, pixel: { area1: 120, area2: '*', area3: 160 }};
   panZoomController;
   zoomLevels: number[];
   currentZoomLevel: number;
@@ -117,9 +107,8 @@ export class AppComponent implements AfterViewInit {
     this.tab = numTab;
     console.log(numTab);
   }
-  openSublist(sublistNum) {
-    console.log(sublistNum);
-    this.sublist = sublistNum;
+  selectCard(event: MouseEvent) {
+    console.log(event);
 
   }
 }
