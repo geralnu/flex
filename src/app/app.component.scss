@@ -519,7 +519,7 @@ header {
             position: relative;
             margin: 0 15px 0 0;
             .document-img{
-              background-image: url("/assets/img/document.PNG");
+              background-image: url("/assets/img/document.png");
               background-size: contain;
               height: 18px;
               background-repeat: no-repeat;
@@ -549,7 +549,7 @@ header {
           clip-path: polygon(0 0, 50% 100%, 100% 0);
         }
         input:checked + label > .document-status >.document-img {
-          background-image: url("/assets/img/documentSelected.PNG");
+          background-image: url("/assets/img/documentSelected.png");
         }
 
 

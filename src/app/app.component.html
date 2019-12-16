@@ -339,7 +339,8 @@
                   <button class="transparent-button" (click)="zoomToggle(false)">
                     -
                   </button>
-                  <input type="range" class="slider" min="0" max="3" [step]="stepInput" [value]="currentZoomLevel" #ref (change)="changeZoom($event)"/>
+                  <input type="range" id="slider" class="slider" min="0" max="3" [step]="stepInput"
+                    [value]="currentZoomLevel" #ref (input)="clickRange(ref.value)" (change)="changeZoom($event)" />
                   <button class="transparent-button" (click)="zoomToggle(true)">
                     +
                   </button>

@@ -29,11 +29,12 @@ export class AppComponent implements AfterViewInit {
   stepInput = 0.25;
   prevValue;
   isShortHidden = true;
-
+  inputRange;
   ngAfterViewInit() {
     this.zoomLevels = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
     this.currentZoomLevel = this.zoomLevels[6];
     this.prevValue = this.currentZoomLevel;
+    this.inputRange = document.getElementById('slider');
   }
 
   /*dragEnd(unit, { sizes }) {
@@ -62,22 +63,22 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  changeZoom(event) {
-    let zoomValue = event.target.value;
-
-    if (zoomValue == 1.50 &&  this.prevValue == 2) {
-      zoomValue = 1.75;
+  clickRange(value) {
+    console.log(value);
+    if (value == 2 ) {
+      // console.log(`prev Value ${this.prevValue} -- actual Value ${value}`);
+      if (this.prevValue == 2.5) {
+        this.stepInput = 0.25;
+      }
     }
-    if (zoomValue >= 2) {
+    if (value > 2) {
       this.stepInput = 0.5;
-    }else if( zoomValue < 2) {
+    } else if (value < 2) {
       this.stepInput = 0.25;
     }
-    this.currentZoomLevel = zoomValue;
+    this.currentZoomLevel = value;
+    this.prevValue = value;
 
-    console.log(zoomValue,'<-zoom  step->',this.stepInput);
-    console.log(`prev Value ${this.prevValue} -- actual Value ${this.currentZoomLevel}`);
-    this.prevValue = this.currentZoomLevel;
     this.zoom();
   }
 
