@@ -472,10 +472,15 @@ header {
             margin: 0;
           }
         }
+        .item + input:is(:checked) {
+          background-color: #EBEBEB;
+          border-radius: 8px;
+        }
 
         .itemSelected {
           background: #949494;
         }
+
       }
       .item {
         margin: 13.5px 10px 13.5px 21px;
@@ -483,7 +488,6 @@ header {
         .item-folder , .arrow {
           float: left;
            z-index: 0;
-           background: #949494;
            cursor: pointer;
         }
         .item-folder {
@@ -491,11 +495,15 @@ header {
           width: 19px;
           border-radius: 3px;
           margin: 0 16px 0 0;
+          background-image: url("/assets/img/closed-folder.png");
+          background-size: cover;
+          background-repeat: no-repeat;
         }
         .arrow {
           height: 13px;
           width: 10px;
           margin: 2px 16px 0 17px;
+          background: #949494;
           clip-path: polygon(0 0, 0 100%, 100% 50%);
         }
 
@@ -542,6 +550,9 @@ header {
         input:checked  ~ ul, input:checked  ~ .numberPages {
           display: block;
         }
+        input:checked + .arrow + .item-folder {
+          background-image: url("/assets/img/open-folder.png");
+        }
 
         input:checked + .arrow {
           height: 10px;
@@ -570,8 +581,9 @@ header {
             .icon {
                 height: 13.37px;
                 width: 19px;
-                opacity: 0.4;
-                background: #949494;
+                background-image: url(/assets/img/icon-image.png);
+                background-size: cover;
+                background-position: center;
                 border-radius: 3px;
                 margin: 0 12px 0 0;
             }
