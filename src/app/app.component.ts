@@ -21,8 +21,8 @@ export class AppComponent implements AfterViewInit {
   originalWidth = 276;
   height = this.originalHeight;
   width = this.originalWidth;
-  panelSidebar = 18;
-  panelMain = 82;
+  panelSidebar = 19.3;
+  panelMain = 80.7;
   collapsed = false;
   tab = 1;
   sublist = 0;
@@ -58,8 +58,8 @@ export class AppComponent implements AfterViewInit {
       this.panelSidebar = 3;
       this.panelMain = 97;
     } else {
-      this.panelSidebar = 18;
-      this.panelMain = 82;
+      this.panelSidebar = 19.3;
+      this.panelMain = 80.7;
     }
   }
 
@@ -84,9 +84,13 @@ export class AppComponent implements AfterViewInit {
 
   zoom() {
     const scale = this.currentZoomLevel;
+    console.log(scale,'scala');
+
     if (scale) {
+      console.log(`ancho: ${this.width}  alto:${this.height}`);
       this.width = this.originalWidth * scale ;
       this.height = this.originalHeight * scale ;
+      console.log(`anchoDespues: ${this.width}  altoDespues:${this.height}`);
     }
   }
 
@@ -97,7 +101,9 @@ export class AppComponent implements AfterViewInit {
         this.currentZoomLevel = this.zoomLevels[idx + 1];
       }
     } else {
+      console.log('zoomOut');
       if (typeof this.zoomLevels[idx - 1] !== 'undefined') {
+        console.log('entre a if', this.zoomLevels[idx - 1], 'esto es zoom');
         this.currentZoomLevel = this.zoomLevels[idx - 1];
       }
     }

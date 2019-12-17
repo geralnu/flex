@@ -117,7 +117,7 @@ header {
   display: flex;
   background: white;
   height: 80px;
-  padding: 22px 38px;
+  padding: 22px 54px 22px 38px;
   justify-content: space-between;
 
   &-content {
@@ -125,7 +125,7 @@ header {
     .header-info {
       display: block;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 19px;
       color: #949494;
       margin: 0 83.5px 0 0;
@@ -152,7 +152,7 @@ header {
     font-size: 14px;
     letter-spacing: -0.39px;
     line-height: 16px;
-    padding: 0 7px;
+    padding: 0 15px;
   }
 }
 
@@ -207,6 +207,7 @@ header {
         padding: 0px 27px;
         height: 35px;
         margin: 6px 0 0 0;
+        font-size: 14px;
       }
 
       .icon-container {
@@ -225,22 +226,22 @@ header {
           position: relative;
 
           &:nth-of-type(1){
-            background-image: url("/assets/img/folder.png");
+            background-image: url("../assets/img/folder.png");
             background-size: contain;
             background-repeat: no-repeat;
           }
           &:nth-of-type(2){
-            background-image: url("/assets/img/printer.png");
+            background-image: url("../assets/img/printer.png");
             background-size: contain;
             background-repeat: no-repeat;
           }
           &:nth-of-type(3){
-            background-image: url("/assets/img/upload.png");
+            background-image: url("../assets/img/upload.png");
             background-size: contain;
             background-repeat: no-repeat;
           }
           &:nth-of-type(4){
-            background-image: url("/assets/img/download.png");
+            background-image: url("../assets/img/download.png");
             background-size: contain;
             background-repeat: no-repeat;
           }
@@ -379,11 +380,17 @@ header {
     height: calc(100% - 54px);
 
     div {
-      margin: 0 18px 22px;
+      margin: 0 auto 22px;
       width: 25px;
       height: 25px;
-      background: #BCBCBC;
+      background-image: url("../assets/img/thumbnails.png");
+      background-size: contain;
+      background-repeat: no-repeat;
       border-radius: 3px;
+      &:first-of-type {
+        margin: 0 auto 22px;
+        background-image: url("../assets/img/treeview.png");
+      }
     }
   }
 
@@ -398,7 +405,7 @@ header {
       letter-spacing: -0.33px;
       line-height: 14px;
       display: flex;
-      padding: 21px 34px;
+      padding: 21px 0 21px 34px;
       background: #FFFFFF;
       color: #BCBCBC;
       cursor: pointer;
@@ -416,14 +423,24 @@ header {
         h2 {
           font-weight: bold;
         }
+        .tab-icon{
+          &.tree{
+            background-image: url("../assets/img/treeview.png");
+          }
+        }
       }
 
       .tab-icon {
         height: 17px;
         width: 17px;
-        background: #BCBCBC;
+        background-image: url("../assets/img/thumbnails.png");
+        background-size: contain;
+        background-repeat: no-repeat;
         margin: 0 10px 0 0;
         border-radius: 3px;
+        &.tree{
+          background-image: url("../assets/img/treeview-unselected.png");
+        }
       }
     }
   }
@@ -472,10 +489,6 @@ header {
             margin: 0;
           }
         }
-        .item + input:is(:checked) {
-          background-color: #EBEBEB;
-          border-radius: 8px;
-        }
 
         .itemSelected {
           background: #949494;
@@ -494,22 +507,22 @@ header {
           height: 16.47px;
           width: 19px;
           border-radius: 3px;
-          margin: 0 16px 0 0;
-          background-image: url("/assets/img/closed-folder.png");
+          margin: 2px 16px 0;
+          background-image: url("../assets/img/closed-folder.png");
           background-size: cover;
           background-repeat: no-repeat;
         }
         .arrow {
           height: 13px;
           width: 10px;
-          margin: 2px 16px 0 17px;
+          margin: 4px 0 0 17px;
           background: #949494;
           clip-path: polygon(0 0, 0 100%, 100% 50%);
         }
 
         label {
           cursor: pointer;
-          margin: 13.5px 13.5px 8px;
+          padding: 0.5px 0.5px 8px;
           color: #727272;
           font-size: 15px;
           letter-spacing: -0.42px;
@@ -527,13 +540,19 @@ header {
             position: relative;
             margin: 0 15px 0 0;
             .document-img{
-              background-image: url("/assets/img/document.png");
+              background-image: url("../assets/img/document.png");
               background-size: contain;
               height: 18px;
               background-repeat: no-repeat;
               width: 18px;
               margin: 0 5px;
             }
+          }
+          &[for=B]{
+            .document-status{
+              margin: 0 6px 0 0 ;
+            }
+
           }
         }
 
@@ -551,7 +570,7 @@ header {
           display: block;
         }
         input:checked + .arrow + .item-folder {
-          background-image: url("/assets/img/open-folder.png");
+          background-image: url("../assets/img/open-folder.png");
         }
 
         input:checked + .arrow {
@@ -560,7 +579,7 @@ header {
           clip-path: polygon(0 0, 50% 100%, 100% 0);
         }
         input:checked + label > .document-status >.document-img {
-          background-image: url("/assets/img/documentSelected.png");
+          background-image: url("../assets/img/documentSelected.png");
         }
 
 
@@ -579,9 +598,9 @@ header {
             display: flex;
             }
             .icon {
-                height: 13.37px;
-                width: 19px;
-                background-image: url(/assets/img/icon-image.png);
+                height: 17px;
+                width: 16px;
+                background-image: url("../assets/img/icon-image.png");
                 background-size: cover;
                 background-position: center;
                 border-radius: 3px;
@@ -699,7 +718,7 @@ header {
   grid-template-rows: minmax(0, 20px) 14fr;
 
   img {
-    height: 90%;
+    height: 60%;
     width: auto;
     cursor: grab;
   }
@@ -729,7 +748,7 @@ header {
     float:right;
     position: relative;
     top: 4px;
-    margin: 0 22px;
+    margin: 0 22px 0 0;
   }
 }
 
